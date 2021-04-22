@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <!--
+        BINGO CHALLENGE!!!
+        Create programmatically (with JS) a BINGO board with 76 cells, from 1 to 76.
+        Create a button to randomize a number from 1 to 76. The same number should be highlighted on the bingo board
+
+        EXTRA: 
+        - Take ALWAYS a new number (eg. avoid randoming the number 10 3 times)
+        - Create a USER BOARD with 24 randomized numbers that highlights as the main board does
+        - Let the user choose HOW MANY user boards he's willing to play with and create them.
+    -->
+
+    <script>
+      const createBingoBord = function () {
+        let body = document.getElementsByTagName("body")[0];
+        let h1 = document.createElement("h1");
+        h1.innerText = "Bingo";
+        body.appendChild(h1);
+        let divContainer = document.createElement("div");
+        for (let i = 0; i < 76; i++) {
+          let divCells = document.createElement("div");
+          divCells.innerText = i + 1;
+          divCells.classList.add("cells");
+
+          divContainer.appendChild(divCells);
+        }
+
+        divContainer.classList.add("container");
+        body.appendChild(divContainer);
+
+        let divRandomizeBtn = document.createElement("div");
+        divRandomizeBtn.classList.add("btn-container");
+        let btnRandomize = document.createElement("button");
+        btnRandomize.classList.add("btn-randomize");
+        btnRandomize.innerText = "Randomize";
+        btnRandomize.setAttribute("id", "btnRandomize");
+        btnRandomize.addEventListener("click", randomize);
+        divRandomizeBtn.appendChild(btnRandomize);
+        body.appendChild(divRandomizeBtn);
+      };
+      window.onload = function () {
+        createBingoBord();
+      };
+      const randomize = function () {
+        let cells = document.querySelectorAll("div.cells");
+        let randomNumber = 1 + Math.floor(Math.random() * 76);
+        console.log(randomNumber);
+
+        for (let i = 0; i < 76; i++) {
+          if (parseInt(cells[i].innerText) === randomNumber) {
+            cells[i].style.backgroundColor = "green";
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

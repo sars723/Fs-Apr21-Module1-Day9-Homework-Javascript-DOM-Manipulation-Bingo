@@ -1,0 +1,27 @@
+h1 {
+  text-align: center;
+  font-size: 70px;
+}
+.container {
+  width: 800px;
+  margin: 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.cells {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border: 1px solid black;
+}
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.btn-randomize {
+  padding: 20px 30px;
+  font-size: 30px;
+  border-radius: 10px;
+}
